@@ -92,13 +92,37 @@
         <textarea placeholder="¿En qué podemos ayudarte?" rows="4" class="w-full p-3 border border-cyan-300 rounded-md focus:ring-cyan-500" required></textarea>
         <button type="submit" class="bg-cyan-700 text-white px-6 py-3 rounded-md hover:bg-cyan-800 transition">Enviar</button>
       </form>
+      <!-- Mensaje de confirmación -->
+<div id="mensajeConfirmacion" class="hidden mt-4 text-green-600 font-semibold text-center">
+  ¡Tu mensaje ha sido enviado con éxito! Te enviaremos una respuesta pronto.
+</div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-cyan-900 text-white text-center py-6 mt-10">
-    <p>&copy; 2025 Consultoría de Importación. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Universidad Americana Todos los derechos reservados.</p>
   </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const mensaje = document.getElementById("mensajeConfirmacion");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // evita el envío real
+      mensaje.classList.remove("hidden");
+      mensaje.classList.add("animate__animated", "animate__fadeIn");
+
+      // Limpiar campos (opcional)
+      form.reset();
+
+      // Ocultar el mensaje después de 5 segundos (opcional)
+      setTimeout(() => {
+        mensaje.classList.add("hidden");
+      }, 5000);
+    });
+  });
+</script>
 
 </body>
 </html>
